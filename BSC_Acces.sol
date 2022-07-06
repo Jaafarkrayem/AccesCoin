@@ -32,7 +32,7 @@ contract Metacces is ERC20 {
     event OwnershipTransferred(address indexed oldOwner, address indexed newOwner);
 
     modifier onlyOwner(){
-        require(msg.sender == owner);
+        require(msg.sender == owner, "caller not owner");
         _;
     }
 
@@ -46,6 +46,7 @@ constructor () ERC20("Metacces", "Acces") payable {
    function transferOwnership(address _newOwner) external onlyOwner{
        require(_newOwner != address(0),"Zero address");
        owner = _newOwner;
+       emit OwnershipTransferred(owner, _newOwner);
    } 
    function privateSale(address) external payable returns (bool success){
     require(balanceOf(address(msg.sender)) <= privateLimit * Path , "You reached your private sale limit");  
