@@ -33,7 +33,7 @@ contract MetaccesPolygon is ERC20, ERC20Burnable {
     }
  
 
-constructor (address _bridge) ERC20("BitKanz", "BTK") payable {
+constructor (address _bridge) ERC20("Metacces", "Acces") payable {
     owner = msg.sender;
     bridge = _bridge;
      _mint (address(this), 100000000 * path); // 20% of the Total Supply
